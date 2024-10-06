@@ -1,6 +1,6 @@
 {
 	"version": "1.7.9",
-	"name": "status-sharding",
+	"name": "@nezuchan/status-sharding",
 	"author": "Digital39999",
 	"scripts": {
 		"ts": "pnpm install typescript --save-dev -g",
