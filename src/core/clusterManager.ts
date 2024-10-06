@@ -97,9 +97,9 @@ export class ClusterManager<
 	 * Creates an instance of ClusterManager.
 	 * @constructor
 	 * @param {string} file - Path to the file that will be spawned.
-	 * @param {ClusterManagerCreateOptions<ClusteringMode>} options - Options for the ClusterManager.
+	 * @param {ClusterManagerOptions<ClusteringMode>} options - Options for the ClusterManager.
 	 */
-	constructor(public file: string, options: ClusterManagerCreateOptions<ClusteringMode>) {
+	constructor(public file: string, options: ClusterManagerOptions<ClusteringMode>) {
 		super();
 
 		if (!file) throw new Error('CLIENT_INVALID_OPTION | No File specified.');
