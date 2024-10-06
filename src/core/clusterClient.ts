@@ -1,6 +1,6 @@
 import { ClusterClientEvents, EvalOptions, MessageTypes, Serialized, Awaitable, ValidIfSerializable, SerializableInput, ClusterClientData } from '../types';
 import { BaseMessage, BaseMessageInput, DataType, ProcessMessage } from '../other/message';
-import { ClientOptions, Client as DiscordClient, Guild, ClientEvents } from 'discord.js';
+import { SapphireClient as DiscordClient } from '@sapphire/framework';
 import { BrokerMessage, IPCBrokerClient } from '../handlers/broker';
 import { ClusterClientHandler } from '../handlers/message';
 import { ShardingUtils } from '../other/shardingUtils';
@@ -11,6 +11,7 @@ import { ChildClient } from '../classes/child';
 import { Serializable } from 'child_process';
 import { getInfo } from '../other/data';
 import EventEmitter from 'events';
+import { ClientEvents, ClientOptions, Guild } from 'discord.js';
 
 /**
  * Modified ClientEvents such that the ready event has the ShardingClient instead of the normal Client.
@@ -76,7 +77,7 @@ export class ShardingClient<
 	 * @returns {this} The client.
 	 */
 	on(event: string | symbol, listener: (...args: unknown[]) => void): this {
-		return super.on(event, listener);
+		return super.on(event as string, listener);
 	}
 
 	/**
@@ -102,7 +103,7 @@ export class ShardingClient<
 	 * @returns {this} The client.
 	 */
 	once(event: string | symbol, listener: (...args: unknown[]) => void): this {
-		return super.once(event, listener);
+		return super.once(event as string, listener);
 	}
 
 	/**
@@ -128,7 +129,7 @@ export class ShardingClient<
 	 * @returns {this} The client.
 	 */
 	off(event: string | symbol, listener: (...args: unknown[]) => void): this {
-		return super.off(event, listener);
+		return super.off(event as string, listener);
 	}
 
 	/**
@@ -154,7 +155,7 @@ export class ShardingClient<
 	 * @returns {boolean} Whether the event was emitted.
 	 */
 	emit(event: string | symbol, ...args: unknown[]): boolean {
-		return super.emit(event, ...args);
+		return super.emit(event as string, ...args);
 	}
 }
 

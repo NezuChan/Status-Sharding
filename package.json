@@ -45,5 +45,8 @@
 	},
 	"engines": {
 		"node": ">=18.4.0"
+	},
+	"dependencies": {
+		"@sapphire/framework": "^5.2.1"
 	}
 }
