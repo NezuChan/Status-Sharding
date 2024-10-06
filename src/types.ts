@@ -143,6 +143,11 @@ export type Serialized<T> = T extends symbol | bigint | UnknownFunction ? never 
  */
 export interface ClusterManagerCreateOptions<T extends ClusteringMode> {
     /**
+     * An Array of Internal Shards Ids, which should get spawned.
+     * @type {number[]}
+     */
+    shardList: number[];
+    /**
      * What mode to use for clustering.
      * @type {?T}
      */

@@ -97,9 +97,9 @@ export class ClusterManager<
 	 * Creates an instance of ClusterManager.
 	 * @constructor
 	 * @param {string} file - Path to the file that will be spawned.
-	 * @param {ClusterManagerOptions<ClusteringMode>} options - Options for the ClusterManager.
+	 * @param {ClusterManagerCreateOptions<ClusteringMode>} options - Options for the ClusterManager.
 	 */
-	constructor(public file: string, options: ClusterManagerOptions<ClusteringMode>) {
+	constructor(public file: string, options: ClusterManagerCreateOptions<ClusteringMode>) {
 		super();
 
 		if (!file) throw new Error('CLIENT_INVALID_OPTION | No File specified.');
@@ -122,7 +122,7 @@ export class ClusterManager<
 				maxMissedHeartbeats: 3,
 			}),
 			mode: options.mode || 'worker',
-			shardList: [], clusterList: [],
+			clusterList: [],
 			spawnOptions: {
 				timeout: options.spawnOptions?.timeout ?? -1,
 				delay: options.spawnOptions?.delay ?? 8000,
